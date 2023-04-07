@@ -1,5 +1,4 @@
 package com.example.myapplication;
-
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
-
 public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder> {
     private LayoutInflater inflater;
     private List<String> store_items;
@@ -24,12 +22,10 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder> {
         inflater = LayoutInflater.from(context);
         this.context = context;
     }
-
     @Override
     public int getItemCount() {
         return store_items.size();
     }
-
     @NonNull
     @Override
     public MyAdapter2.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

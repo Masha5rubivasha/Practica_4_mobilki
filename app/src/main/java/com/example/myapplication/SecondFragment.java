@@ -18,7 +18,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class SecondFragment extends Fragment {
 
     Button button_1;
@@ -73,7 +72,7 @@ public class SecondFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getContext(), store_items.get(i), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), store_items.get(i), Toast.LENGTH_SHORT).show();
                 Log.i("ListView", store_items.get(i));
             }
         });
