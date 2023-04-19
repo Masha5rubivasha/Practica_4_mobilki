@@ -3,7 +3,10 @@ package com.example.myapplication;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,30 +24,28 @@ public class FirstFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_first, container, false);
-        button_2 = (Button) view.findViewById(R.id.button2);
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        button_2 = view.findViewById(R.id.button2);
         button_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SecondFragment secondFragment = new SecondFragment();
-                getParentFragmentManager().beginTransaction()
-                        .setReorderingAllowed(true)
-                        .replace(R.id.Container, secondFragment)
-                        .commit();
+                Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondFragment);
             }
         });
 
-        button_3 = (Button) view.findViewById(R.id.button3);
+        button_3 = view.findViewById(R.id.button3);
         button_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ThirdFragment thirdFragment = new ThirdFragment();
-                getParentFragmentManager().beginTransaction()
-                        .setReorderingAllowed(true)
-                        .replace(R.id.Container, thirdFragment)
-                        .commit();
+                Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_thirdFragment);
             }
         });
-
-        return view;
     }
 }

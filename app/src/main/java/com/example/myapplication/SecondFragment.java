@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,29 +29,7 @@ public class SecondFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_second, container, false);
-        button_1 = (Button) view.findViewById(R.id.button21);
-        button_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirstFragment firstFragment = new FirstFragment();
-                getParentFragmentManager().beginTransaction()
-                        .setReorderingAllowed(true)
-                        .replace(R.id.Container, firstFragment)
-                        .commit();
-            }
-        });
 
-        button_3 = (Button) view.findViewById(R.id.button23);
-        button_3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ThirdFragment thirdFragment = new ThirdFragment();
-                getParentFragmentManager().beginTransaction()
-                        .setReorderingAllowed(true)
-                        .replace(R.id.Container, thirdFragment)
-                        .commit();
-            }
-        });
 
         return view;
     }
@@ -68,6 +47,22 @@ public class SecondFragment extends Fragment {
 
         ListView listView = view.findViewById(R.id.list_view);
         listView.setAdapter(listViewAdapter);
+
+        button_1 = view.findViewById(R.id.button21);
+        button_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_secondFragment_to_firstFragment);
+            }
+        });
+
+        button_3 = view.findViewById(R.id.button23);
+        button_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_secondFragment_to_thirdFragment);
+            }
+        });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
