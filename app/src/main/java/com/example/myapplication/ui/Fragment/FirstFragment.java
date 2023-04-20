@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui.Fragment;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.myapplication.R;
+
 public class FirstFragment extends Fragment {
     public FirstFragment(){
         super(R.layout.fragment_first);

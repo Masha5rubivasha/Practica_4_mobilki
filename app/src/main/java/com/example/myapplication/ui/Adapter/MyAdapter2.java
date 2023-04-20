@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui.Adapter;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myapplication.R;
 
 import java.util.List;
 public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder> {

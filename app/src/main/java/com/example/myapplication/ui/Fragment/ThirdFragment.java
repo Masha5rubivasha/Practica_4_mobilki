@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui.Fragment;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.myapplication.ui.Adapter.MyAdapter2;
+import com.example.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;

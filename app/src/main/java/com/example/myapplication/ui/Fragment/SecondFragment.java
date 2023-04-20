@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui.Fragment;
 
 import android.os.Bundle;
 
@@ -15,6 +15,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.myapplication.ui.Adapter.MyAdapter;
+import com.example.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
