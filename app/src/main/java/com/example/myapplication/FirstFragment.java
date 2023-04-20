@@ -19,6 +19,10 @@ public class FirstFragment extends Fragment {
 
     Button button_2;
     Button button_3;
+
+    Button button_best_club;
+
+    Button button_best_song;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +49,23 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_thirdFragment);
+            }
+        });
+
+        button_best_club = view.findViewById(R.id.button_best_club);
+
+        button_best_club.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_fourthFragment);
+            }
+        });
+        button_best_song = view.findViewById(R.id.button_best_song);
+
+        button_best_song.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_fifthFragment);
             }
         });
     }
