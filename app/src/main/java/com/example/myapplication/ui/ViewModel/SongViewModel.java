@@ -19,8 +19,6 @@ public class SongViewModel extends ViewModel {
     public SongViewModel(){
         repository = new MutableLiveData<>(new SongRepository(0));
     }
-
-
     public LiveData<SongRepository> getSong(){
         return repository;
     }
@@ -32,7 +30,6 @@ public class SongViewModel extends ViewModel {
                 new SongRepository(randInt)
         );
     }
-
     public String getName(){
         return repository.getValue().getSong();
     }
