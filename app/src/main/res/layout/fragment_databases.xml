@@ -10,7 +10,6 @@
         android:id="@+id/textSavedString"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="black"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp"

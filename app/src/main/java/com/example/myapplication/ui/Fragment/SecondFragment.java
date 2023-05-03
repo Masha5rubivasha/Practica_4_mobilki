@@ -5,27 +5,46 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.myapplication.ui.Adapter.MyAdapter;
+import com.example.myapplication.data.databases.entity.CommonPerfumeEntity;
 import com.example.myapplication.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.myapplication.ui.Adapter.MyCustomRecyclerViewAdapter;
+import com.example.myapplication.ui.ViewModel.CommonPerfumeViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class SecondFragment extends Fragment {
 
+    private CommonPerfumeViewModel mCommonPerfumeViewModel;
+
     Button button_1;
     Button button_3;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        getParentFragmentManager().setFragmentResultListener(NewPerfumeFragment.REPLY_PERFUME,
+                this, new FragmentResultListener() {
+                    @Override
+                    public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+                        String namePerfume = bundle.getString(NewPerfumeFragment.REPLY_NAME);
+                        int pricePerfume = bundle.getInt(NewPerfumeFragment.REPLY_PRICE);
+
+                        CommonPerfumeEntity word = new CommonPerfumeEntity(namePerfume, pricePerfume);
+                        mCommonPerfumeViewModel.insert(word);
+                    }
+                });
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,16 +59,26 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        List<String> store_items = new ArrayList<String>();
-        for (int i = 1; i < 201; i++){
-            store_items.add("Коктейль " + i);
-        }
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view_store);
+        final MyCustomRecyclerViewAdapter adapter = new MyCustomRecyclerViewAdapter(new MyCustomRecyclerViewAdapter.WordDiff());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        MyAdapter listViewAdapter = new MyAdapter(
-                getActivity(),R.layout.store_item, store_items);
+        // Летающая кнопочка
+        FloatingActionButton fab = view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_secondFragment_to_newPerfumeFragment);
+            }
+        });
 
-        ListView listView = view.findViewById(R.id.list_view);
-        listView.setAdapter(listViewAdapter);
+        mCommonPerfumeViewModel = new ViewModelProvider(this).get(CommonPerfumeViewModel.class);
+
+        mCommonPerfumeViewModel.getAllCommonPerfumes().observe(getActivity(), words -> {
+            // Update the cached copy of the words in the adapter.
+            adapter.submitList(words);
+        });
 
         button_1 = view.findViewById(R.id.button21);
         button_1.setOnClickListener(new View.OnClickListener() {
@@ -64,14 +93,6 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.action_secondFragment_to_thirdFragment);
-            }
-        });
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity(), store_items.get(i), Toast.LENGTH_SHORT).show();
-                Log.i("ListView", store_items.get(i));
             }
         });
     }

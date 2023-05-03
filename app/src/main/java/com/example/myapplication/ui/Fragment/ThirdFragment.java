@@ -5,15 +5,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.myapplication.ui.Adapter.MyAdapter2;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
@@ -38,12 +35,12 @@ public class ThirdFragment extends Fragment {
         for(int i = 1; i <= 200; i++){
             store_items.add("Клуб " + i);
         }
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 1);
-        MyAdapter2 recyclerViewAdapter = new MyAdapter2(getActivity(), store_items);
-
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(recyclerViewAdapter);
+//        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 1);
+//        MyAdapter2 recyclerViewAdapter = new MyAdapter2(getActivity(), store_items);
+//
+//        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setAdapter(recyclerViewAdapter);
 
         button_1 = view.findViewById(R.id.button31);
         button_1.setOnClickListener(new View.OnClickListener() {

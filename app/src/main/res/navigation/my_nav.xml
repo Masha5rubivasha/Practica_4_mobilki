@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_secondFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_newPerfumeFragment"
+            app:destination="@id/newPerfumeFragment" />
     </fragment>
 
     <fragment
@@ -59,4 +62,12 @@
         android:name="com.example.myapplication.ui.Fragment.FourthFragment"
         android:label="fragment_fourth"
         tools:layout="@layout/fragment_fourth" />
+    <fragment
+        android:id="@+id/newPerfumeFragment"
+        android:name="com.example.myapplication.ui.Fragment.NewPerfumeFragment"
+        android:label="NewPerfumeFragment" >
+        <action
+            android:id="@+id/action_newPerfumeFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
 </navigation>

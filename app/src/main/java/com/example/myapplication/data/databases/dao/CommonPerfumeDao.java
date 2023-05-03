@@ -6,7 +6,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.firstpractice.data.databases.entity.CommonPerfumeEntity;
+import com.example.myapplication.data.databases.entity.CommonPerfumeEntity;
 
 import java.util.List;
 
