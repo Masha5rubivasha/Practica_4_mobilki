@@ -9,28 +9,28 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
-import com.example.myapplication.data.databases.dao.CommonPerfumeDao;
-import com.example.myapplication.data.databases.entity.CommonPerfumeEntity;
+import com.example.myapplication.data.databases.dao.CocktailsDao;
+import com.example.myapplication.data.databases.entity.CocktailsEntity;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {CommonPerfumeEntity.class}, version = 1, exportSchema = false)
-public abstract class CommonPerfumeDatabase extends RoomDatabase {
-    public abstract CommonPerfumeDao commonPerfumeDao();
+@Database(entities = {CocktailsEntity.class}, version = 1, exportSchema = false)
+public abstract class CocktailsDatabase extends RoomDatabase {
+    public abstract CocktailsDao commonPerfumeDao();
 
-    private static volatile CommonPerfumeDatabase INSTANCE;
+    private static volatile CocktailsDatabase INSTANCE;
 
     private static final int NUMBER_OF_THREADS = 4;
     public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    public static CommonPerfumeDatabase getDatabase(final Context context) {
+    public static CocktailsDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
-            synchronized (CommonPerfumeDatabase.class) {
+            synchronized (CocktailsDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                                    CommonPerfumeDatabase.class, "common_perfume_database")
+                                    CocktailsDatabase.class, "common_perfume_database")
                             .addCallback(sRoomDatabaseCallback)
                             .build();
                 }
@@ -44,10 +44,10 @@ public abstract class CommonPerfumeDatabase extends RoomDatabase {
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
             databaseWriteExecutor.execute(() -> {
-                CommonPerfumeDao dao = INSTANCE.commonPerfumeDao();
+                CocktailsDao dao = INSTANCE.commonPerfumeDao();
                 dao.deleteAll();
-                dao.insert(new CommonPerfumeEntity("Lost Cherry",700));
-                dao.insert(new CommonPerfumeEntity("L.12.12",800));
+                dao.insert(new CocktailsEntity("Lost Cherry",700));
+                dao.insert(new CocktailsEntity("L.12.12",800));
             });
         }
     };

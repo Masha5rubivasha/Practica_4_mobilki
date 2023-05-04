@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 
-public class CommonPerfumeViewHolder extends RecyclerView.ViewHolder {
+public class CocktailsViewHolder extends RecyclerView.ViewHolder {
     private final TextView commonPerfumeNameItemView;
     private final TextView commonPerfumePriceItemView;
 
-    private CommonPerfumeViewHolder(View itemView){
+    private CocktailsViewHolder(View itemView){
         super(itemView);
         commonPerfumeNameItemView = itemView.findViewById(R.id.store_item_name);
         commonPerfumePriceItemView = itemView.findViewById(R.id.store_item_price);
@@ -24,9 +24,9 @@ public class CommonPerfumeViewHolder extends RecyclerView.ViewHolder {
         commonPerfumePriceItemView.setText(Integer.toString(priceText));
     }
 
-    static CommonPerfumeViewHolder create(ViewGroup parent){
+    static CocktailsViewHolder create(ViewGroup parent){
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.store_item, parent, false);
-        return new CommonPerfumeViewHolder(view);
+        return new CocktailsViewHolder(view);
     }
 }

@@ -6,19 +6,19 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.myapplication.data.databases.entity.CommonPerfumeEntity;
+import com.example.myapplication.data.databases.entity.CocktailsEntity;
 
 import java.util.List;
 
 @Dao
-public interface CommonPerfumeDao {
+public interface CocktailsDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(CommonPerfumeEntity perfume);
+    void insert(CocktailsEntity perfume);
 
     @Query("DELETE FROM common_perfume_table")
     void deleteAll();
 
     @Query("SELECT * FROM common_perfume_table")
-    LiveData<List<CommonPerfumeEntity>> getAllCommonPerfumes();
+    LiveData<List<CocktailsEntity>> getAllCommonPerfumes();
 }

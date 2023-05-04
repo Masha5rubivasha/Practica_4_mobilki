@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.myapplication.data.databases.entity.CommonPerfumeEntity;
+import com.example.myapplication.data.databases.entity.CocktailsEntity;
 import com.example.myapplication.R;
 import com.example.myapplication.ui.Adapter.MyCustomRecyclerViewAdapter;
 import com.example.myapplication.ui.ViewModel.CommonPerfumeViewModel;
@@ -40,7 +40,7 @@ public class SecondFragment extends Fragment {
                         String namePerfume = bundle.getString(NewPerfumeFragment.REPLY_NAME);
                         int pricePerfume = bundle.getInt(NewPerfumeFragment.REPLY_PRICE);
 
-                        CommonPerfumeEntity word = new CommonPerfumeEntity(namePerfume, pricePerfume);
+                        CocktailsEntity word = new CocktailsEntity(namePerfume, pricePerfume);
                         mCommonPerfumeViewModel.insert(word);
                     }
                 });

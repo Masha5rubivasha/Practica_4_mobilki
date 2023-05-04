@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_firstFragment_to_fifthFragment"
             app:destination="@id/fifthFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_databasesFragment"
+            app:destination="@id/databasesFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
@@ -70,4 +73,9 @@
             android:id="@+id/action_newPerfumeFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/databasesFragment"
+        android:name="com.example.myapplication.ui.Fragment.DatabasesFragment"
+        android:label="fragment_databases"
+        tools:layout="@layout/fragment_databases" />
 </navigation>

@@ -6,14 +6,14 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "common_perfume_table")
-public class CommonPerfumeEntity {
+public class CocktailsEntity {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
     private String name;
     private int price;
 
-    public CommonPerfumeEntity(String name, int price) {
+    public CocktailsEntity(String name, int price) {
         this.name = name;
         this.price = price;
     }
