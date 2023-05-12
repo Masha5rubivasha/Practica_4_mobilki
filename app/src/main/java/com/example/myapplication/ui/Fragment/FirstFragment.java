@@ -79,5 +79,13 @@ public class FirstFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_databasesFragment);
             }
         });
+
+        Button btn_contacts = view.findViewById(R.id.button_contacts);
+        btn_contacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_contactsFragment);
+            }
+        });
     }
 }

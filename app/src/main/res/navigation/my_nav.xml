@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_firstFragment_to_databasesFragment"
             app:destination="@id/databasesFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_contactsFragment"
+            app:destination="@id/contactsFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
@@ -78,4 +81,9 @@
         android:name="com.example.myapplication.ui.Fragment.DatabasesFragment"
         android:label="fragment_databases"
         tools:layout="@layout/fragment_databases" />
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="com.example.myapplication.ui.Fragment.ContactsFragment"
+        android:label="fragment_contacts"
+        tools:layout="@layout/fragment_contacts" />
 </navigation>
