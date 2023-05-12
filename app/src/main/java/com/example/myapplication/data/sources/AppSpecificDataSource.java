@@ -1,6 +1,4 @@
 package com.example.myapplication.data.sources;
-
-
 import android.content.Context;
 import android.util.Log;
 
@@ -11,12 +9,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-
 public class AppSpecificDataSource {
     private File saveFile;
     private Scanner scan;
     private final String fileName;
-
     public AppSpecificDataSource(){
         fileName = "file1.txt";
     }

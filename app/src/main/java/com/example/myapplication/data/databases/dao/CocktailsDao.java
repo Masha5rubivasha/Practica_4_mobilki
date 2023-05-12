@@ -14,11 +14,11 @@ import java.util.List;
 public interface CocktailsDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(CocktailsEntity perfume);
+    void insert(CocktailsEntity cocktail);
 
-    @Query("DELETE FROM common_perfume_table")
+    @Query("DELETE FROM cocktails_database")
     void deleteAll();
 
-    @Query("SELECT * FROM common_perfume_table")
-    LiveData<List<CocktailsEntity>> getAllCommonPerfumes();
+    @Query("SELECT * FROM cocktails_database")
+    LiveData<List<CocktailsEntity>> getAllCocktails();
 }

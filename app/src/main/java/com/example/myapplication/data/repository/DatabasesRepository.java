@@ -6,7 +6,6 @@ import com.example.myapplication.data.sources.AppSpecificDataSource;
 import com.example.myapplication.data.sources.SharedPreferencesDataSource;
 import com.example.myapplication.data.sources.SharedStorageDataSource;
 
-
 public class DatabasesRepository {
 
     private final AppSpecificDataSource appSpecificDataSource;

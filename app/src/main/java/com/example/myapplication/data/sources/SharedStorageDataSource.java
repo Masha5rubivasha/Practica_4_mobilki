@@ -34,8 +34,6 @@ public class SharedStorageDataSource {
         else {
             Log.e(getClass().toString(),"NO PERMISSION!");
         }
-
-
     }
     public void save(String toSave) {
         try {
@@ -46,7 +44,6 @@ public class SharedStorageDataSource {
             Log.e(getClass().toString(), "ERROR: Can't write in file '" + fileName + "': " + e.toString());
         }
     }
-
     public String load(){
         StringBuilder result = new StringBuilder();
 
@@ -61,7 +58,6 @@ public class SharedStorageDataSource {
         catch (IOException e){
             Log.e(getClass().toString(), "ERROR: Can't read file '" + fileName + "': " + e.toString());
         }
-
         return result.toString();
     }
 }

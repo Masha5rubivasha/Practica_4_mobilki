@@ -12,19 +12,19 @@ import java.util.List;
 
 public class CocktailsRepository {
     private CocktailsDao mCocktailsDao;
-    private LiveData<List<CocktailsEntity>> mAllCommonPerfumes;
+    private LiveData<List<CocktailsEntity>> mAllCocktails;
 
     public CocktailsRepository(Application application){
         CocktailsDatabase db = CocktailsDatabase.getDatabase(application);
-        mCocktailsDao = db.commonPerfumeDao();
-        mAllCommonPerfumes = mCocktailsDao.getAllCommonPerfumes();
+        mCocktailsDao = db.cocktailDao();
+        mAllCocktails = mCocktailsDao.getAllCocktails();
     }
 
-    public LiveData<List<CocktailsEntity>> getAllCommonPerfumes(){ return mAllCommonPerfumes; }
+    public LiveData<List<CocktailsEntity>> getAllCocktails(){ return mAllCocktails; }
 
-    public void insert(CocktailsEntity commonPerfume){
+    public void insert(CocktailsEntity cocktail){
         CocktailsDatabase.databaseWriteExecutor.execute(() -> {
-            mCocktailsDao.insert(commonPerfume);
+            mCocktailsDao.insert(cocktail);
         });
     }
 }

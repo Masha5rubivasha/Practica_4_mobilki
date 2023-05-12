@@ -19,12 +19,12 @@ import android.widget.Button;
 import com.example.myapplication.data.databases.entity.CocktailsEntity;
 import com.example.myapplication.R;
 import com.example.myapplication.ui.Adapter.MyCustomRecyclerViewAdapter;
-import com.example.myapplication.ui.ViewModel.CommonPerfumeViewModel;
+import com.example.myapplication.ui.ViewModel.CocktailsViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class SecondFragment extends Fragment {
 
-    private CommonPerfumeViewModel mCommonPerfumeViewModel;
+    private CocktailsViewModel mCommonPerfumeViewModel;
 
     Button button_1;
     Button button_3;
@@ -33,12 +33,12 @@ public class SecondFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getParentFragmentManager().setFragmentResultListener(NewPerfumeFragment.REPLY_PERFUME,
+        getParentFragmentManager().setFragmentResultListener(NewFragment.REPLY_PERFUME,
                 this, new FragmentResultListener() {
                     @Override
                     public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
-                        String namePerfume = bundle.getString(NewPerfumeFragment.REPLY_NAME);
-                        int pricePerfume = bundle.getInt(NewPerfumeFragment.REPLY_PRICE);
+                        String namePerfume = bundle.getString(NewFragment.REPLY_NAME);
+                        int pricePerfume = bundle.getInt(NewFragment.REPLY_PRICE);
 
                         CocktailsEntity word = new CocktailsEntity(namePerfume, pricePerfume);
                         mCommonPerfumeViewModel.insert(word);
@@ -73,7 +73,7 @@ public class SecondFragment extends Fragment {
             }
         });
 
-        mCommonPerfumeViewModel = new ViewModelProvider(this).get(CommonPerfumeViewModel.class);
+        mCommonPerfumeViewModel = new ViewModelProvider(this).get(CocktailsViewModel.class);
 
         mCommonPerfumeViewModel.getAllCommonPerfumes().observe(getActivity(), words -> {
             // Update the cached copy of the words in the adapter.

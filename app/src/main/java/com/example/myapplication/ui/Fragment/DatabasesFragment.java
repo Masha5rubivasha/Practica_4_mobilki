@@ -69,7 +69,7 @@ public class DatabasesFragment extends Fragment {
         textSavedTextView = view.findViewById(R.id.textSavedString);
         textToSaveTextInput = view.findViewById(R.id.inputTextToSave);
 
-        // #1 App-specific storage buttons
+        // #1
         buttonSaveAppSpecificStorage = view.findViewById(R.id.buttonSaveAppSpecificStorage);
         buttonSaveAppSpecificStorage.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,14 +10,14 @@ import com.example.myapplication.data.repository.CocktailsRepository;
 
 import java.util.List;
 
-public class CommonPerfumeViewModel extends AndroidViewModel {
+public class CocktailsViewModel extends AndroidViewModel {
     private CocktailsRepository mRepository;
     private final LiveData<List<CocktailsEntity>> mAllCommonPerfumes;
 
-    public CommonPerfumeViewModel(Application application){
+    public CocktailsViewModel(Application application){
         super(application);
         mRepository = new CocktailsRepository(application);
-        mAllCommonPerfumes = mRepository.getAllCommonPerfumes();
+        mAllCommonPerfumes = mRepository.getAllCocktails();
     }
 
     public LiveData<List<CocktailsEntity>> getAllCommonPerfumes(){ return mAllCommonPerfumes; }

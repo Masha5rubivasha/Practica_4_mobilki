@@ -67,7 +67,7 @@
         tools:layout="@layout/fragment_fourth" />
     <fragment
         android:id="@+id/newPerfumeFragment"
-        android:name="com.example.myapplication.ui.Fragment.NewPerfumeFragment"
+        android:name="com.example.myapplication.ui.Fragment.NewFragment"
         android:label="NewPerfumeFragment" >
         <action
             android:id="@+id/action_newPerfumeFragment_to_secondFragment"

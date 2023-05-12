@@ -32,7 +32,6 @@ public class SharedPreferencesDataSource {
         editor.putString(saveKey, toSave);
         editor.apply();
     }
-
     public String load(){
         return sharedPreferences.getString(saveKey, "null");
     }
